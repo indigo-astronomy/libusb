@@ -370,7 +370,7 @@ static void darwin_devices_detached (void *ptr, io_iterator_t rem_devices) {
 static void darwin_hotplug_poll (void)
 {
   /* not sure if 5 seconds will be too long/short but it should work ok */
-  mach_timespec_t timeout = {.tv_sec = 5, .tv_nsec = 0};
+  mach_timespec_t timeout = {.tv_sec = 0, .tv_nsec = 50000000};
 
   /* since a kernel thread may nodify the IOInterators used for
    * hotplug notidication we can't just clear the iterators.
